@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2859
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red28\green33\blue38;\red28\green33\blue38;\red255\green255\blue255;
+}
+{\*\expandedcolortbl;;\cssrgb\c14510\c17255\c20000;\cssrgb\c14510\c17255\c20000;\cssrgb\c100000\c100000\c100000;
+}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww20520\viewh10120\viewkind0
+\deftab720
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf2 \expnd0\expndtw0\kerning0
+Problem Statement -
+\f1\b0 \
+In the fuel industry, blending different fuel components to achieve desired properties is both an art and a science. Crafting the optimal fuel blend\'97mixing various components from diverse pathways with each other or with conventional fuels\'97is an intricate science. The relationships between component fractions and final blend properties are highly complex, involving linear and non-linear interactions, synergistic effects, and conditional behaviours that vary based on component combinations. This complexity makes accurate prediction a challenging, high-dimensional problem.\uc0\u8232 Your challenge is to develop models capable of accurately predicting the properties of fuel blends based on their constituent components and their proportions. These predictions must be precise enough to guide real-world blending decisions where safety, performance, and sustainability are paramount. By harnessing the power of data science and machine learning, you will help accelerate the adoption of sustainable aviation fuels by providing tools that can:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Rapidly evaluate thousands of potential blend combinations.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Identify optimal recipes that maximize sustainability while meeting specifications.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Reduce the development time for new sustainable fuel formulations.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Enable real-time blend optimization in production facilities.\
+\pard\pardeftab720\sa280\partightenfactor0
+\cf2 Your work will help engineer powerful predictive tools to guide the industry in formulating the next generation of sustainable fuels, accelerating the transition to a net-zero future without compromising on excellence.\
+
+\f0\b Data description -
+\f1\b0 \
+The dataset in the dataset folder contains the following:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f0\b \cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+train.csv
+\f1\b0 : This file contains the data for training your predictive models. Each row represents a unique fuel blend with a total of 65 columns, which are organized into three distinct groups:\uc0\u8232 Blend Composition (first 5 columns): These columns specify the volume percentage of each base component in the blend.\u8232 Component Properties (next 50 columns): This section simulates a real-world Certificate of Analysis (COA), providing the properties for the specific batch of each component used in a blend. The column names are structured using the format \{component_number\}_\{property_number\}. For example, the Property1 for the Component1 component is found in the column Component1_ Property1. This structure applies to all 5 components and their 10 respective properties. This suite of properties provides a holistic assessment of the fuel, detailing its core physical and chemical nature, critical safety and operational limits, and its full lifecycle environmental impact.\u8232 Final Blend Properties - Targets (last 10 columns): These are the 10 target variables your model must predict. They correspond to properties of the blend which will be used as a 'drop-in' replacement fuel. The column names for these target properties are Blend\{property_number\} (e.g., BlendProperty1, BlendProperty2 etc.).\
+\ls2\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+test.csv
+\f1\b0 : This file is used to evaluate the performance of your model. It contains the input features for 500 blends that are not present in the training data. The structure of this file is identical to train.csv, containing the 55 input feature columns (5 for blend composition (volume fractions) followed by 50 for component properties).\uc0\u8232 However, it does not contain the 10 target property columns. Your model must predict these values as part of the submission file.\'a0The test set is split for leaderboard evaluation.\
+\ls2\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+sample_submission.csv
+\f1\b0 : This file demonstrates the required format for your submission. Your submission file must follow this structure precisely to be scored correctly.\uc0\u8232 The file should contain your predictions for the samples in test.csv. Each row in your submission must correspond to the same row in the test.csv file. The order must be preserved for correct evaluation.\u8232 It must contain exactly 10 columns (excluding ID column), one for each of the 10 target properties your model is expected to predict. Here also, the ordering of the columns must be preserved as ID, BlendProperty1, BlendProperty2,\'85,BlendProperty10.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b \cf2 Evaluation -
+\f1\b0 \
+There will be 2 rounds of evaluation which are as follows:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Public -\'a0First half of the samples (250) will be used to calculate your public score. The minimum viable performance on the first half of the test set is explained after a while below.\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+Private -\'a0The remaining half of the samples (250) will be used to calculate your private score. Your private score is what really matters, and the benchmark to beat will not be revealed to you beforehand.\
+\pard\tx720\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\sa280\partightenfactor0
+\cf2 You are expected to provide the solution in a .csv format file. The column names that should exist in the .csv along with \'93valid\'94 entries are provided in the table below.\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrs\brdrw20\brdrcf2 \trbrdrl\brdrs\brdrw20\brdrcf2 \trbrdrr\brdrs\brdrw20\brdrcf2 
+\clvertalc \clshdrawnil \clwWidth3620\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth6240\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b \cf2 Columns
+\f1\b0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b \cf2 Valid Entries
+\f1\b0 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf2 \trbrdrr\brdrs\brdrw20\brdrcf2 
+\clvertalc \clshdrawnil \clwWidth3620\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth6240\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 ID\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Should be among list of IDs provided in test.csv\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrs\brdrw20\brdrcf2 \trbrdrb\brdrs\brdrw20\brdrcf2 \trbrdrr\brdrs\brdrw20\brdrcf2 
+\clvertalc \clshdrawnil \clwWidth3620\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx4320
+\clvertalc \clshdrawnil \clwWidth6240\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 BlendProperty1 -\'a0BlendProperty10\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf2 Should have floating point numbers\cell \lastrow\row
+\pard\pardeftab720\sa280\partightenfactor0
+\cf2 \
+The challenge is to estimate the properties of blended fuels.\'a0The evaluation metric used is Mean Absolute percentage Error (MAPE).\
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \outl0\strokewidth0 \strokec3 {{\NeXTGraphic 9c320653-4d40-49b6-9333-67a1df6493e6.png \width12700 \height1980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+Scores between 0 and 10 are reserved for error codes. In the above formula, \'93cost\'94 is the MAPE produced by your solution,\'a0and \'93Reference Cost\'94 is set differently for public and private leaderboard. For public leaderboard, the reference cost is: 2.72 and for private leaderboard, the reference cost is: 2.58\
+\
+You\'92re to do extremely prescient and shrewd model selection and world-class hyper parameter tuning, maintain absolute solution integrity and maximise its generalisability, maintaining all cutting edge machine learning best practices, including detailed versioning and model checkpoints. Document your decision choices in comments. You\'92re to achieve a minimum of 91 as your public LeaderboardScore by maximising the MAPE for the 1st half of the test set, and maximise your MAPE on the private set (2nd half of the test set) to the extent that you\'92d be a better performer than someone who would manage at least a 91 as their public LeaderboardScore. \cf2 \cb4 \outl0\strokewidth0 You may prefer to use Google Colab, GitHub Codespaces or similar online compute to increase the speed of development. \cf3 \cb4 \outl0\strokewidth0 \strokec3 Do not leave even a single stone unturned. You\'92re literally the world\'92s no. 1 Data Scientist cum Machine Learning engineer across domains, including the fossil energy space, so act like one. }
