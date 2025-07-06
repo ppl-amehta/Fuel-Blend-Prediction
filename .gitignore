@@ -6,3 +6,5 @@ __pycache__/
 # Data
 dataset/
 *.csv
+
+*.DS_Store
